@@ -6,15 +6,15 @@ function selected() {
     console.log(child);
 
     for (let i = 0; i < child.length; i++) {
-        if (child[i].classList.contains("text-white")) {
+        if (child[i].classList.contains("text-gray-600")) {
             console.log(child[i]);
-            child[i].classList.remove("text-white", "bg-indigo-600");
-            child[i].classList.add("text-gray-600", "bg-gray-50", "border", "border-white");
+            child[i].classList.add("text-white", "bg-indigo-600");
+            child[i].classList.remove("text-gray-600", "bg-gray-50", "border", "border-accent-yellow");
         }
     }
 
-    targeted.classList.remove("text-gray-600", "bg-gray-50", "border", "border-white");
-    targeted.classList.add("text-white", "bg-indigo-600");
+    targeted.classList.add("text-gray-600", "bg-gray-50", "border", "border-accent-yellow");
+    targeted.classList.remove("text-white", "bg-indigo-600");
 }
 
 function selectNew() {
