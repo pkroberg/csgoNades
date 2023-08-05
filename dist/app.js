@@ -8,7 +8,7 @@ function selected() {
     for (let i = 0; i < child.length; i++) {
         if (child[i].classList.contains("text-gray-600")) {
             console.log(child[i]);
-            child[i].classList.add("text-white", "bg-indigo-600");
+            child[i].classList.add("text-light-text", "bg-indigo-600");
             child[i].classList.remove("text-gray-600", "bg-gray-50", "border", "border-accent-yellow");
         }
     }
@@ -37,7 +37,7 @@ function selectedSmall() {
         }
     }
 
-    targeted.classList.remove("text-gray-600", "bg-gray-50", "border", "border-white");
+    // targeted.classList.remove("text-gray-600", "bg-gray-50", "border", "border-white");
 
     document.getElementById("s1").classList.add("hidden");
     document.getElementById("textClicked").innerHTML = targeted.innerHTML;
