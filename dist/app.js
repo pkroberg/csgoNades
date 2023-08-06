@@ -46,3 +46,26 @@ function selectedSmall() {
     newL.classList.toggle("hidden");
     document.getElementById("ArrowSVG").classList.toggle("rotate-180");
 }
+
+
+// Shuffle links
+
+const iframeLinks = [
+    'https://www.example.com/page1',
+    'https://www.example.com/page2',
+    'https://www.example.com/page3'
+    // Add more iframe URLs as needed
+  ];
+
+  const shuffleButton = document.getElementById('shuffleButton');
+  const iframeContainer = document.getElementById('iframeContainer');
+
+  let currentIndex = 0;
+
+  shuffleButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % iframeLinks.length;
+    iframeContainer.src = iframeLinks[currentIndex];
+  });
+
+  // Initial load
+  iframeContainer.src = iframeLinks[currentIndex];
