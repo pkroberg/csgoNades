@@ -50,22 +50,51 @@ function selectedSmall() {
 
 // Shuffle links
 
-const iframeLinks = [
-    'https://www.example.com/page1',
-    'https://www.example.com/page2',
-    'https://www.example.com/page3'
-    // Add more iframe URLs as needed
-  ];
+const originalIframeLinks = [
+    //iframe links
+    'https://gfycat.com/ifr/darktalkativefieldmouse?hd=1&speed=2',
+    'https://gfycat.com/ifr/brilliantviciousbullfrog?hd=1&speed=2',
+    'https://gfycat.com/ifr/youngpoisedcattle?hd=1&speed=2',
+    'https://gfycat.com/ifr/grandiosebriskhawk?hd=1&speed=2',
+    'https://gfycat.com/ifr/secretevilblueshark?hd=1&speed=2',
+    'https://gfycat.com/ifr/embarrassedmedicalgemsbok?hd=1&speed=2'
+];
 
-  const shuffleButton = document.getElementById('shuffleButton');
-  const iframeContainer = document.getElementById('iframeContainer');
+let shuffledLinks = shuffleArray(originalIframeLinks);
+let currentIndex = 0;
 
-  let currentIndex = 0;
+const prevButton = document.getElementById('prevButton');
+const nextButton = document.getElementById('nextButton');
+const iframeContainer = document.getElementById('iframeContainer');
 
-  shuffleButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % iframeLinks.length;
-    iframeContainer.src = iframeLinks[currentIndex];
-  });
+function shuffleArray(array) {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    return shuffledArray;
+}
 
-  // Initial load
-  iframeContainer.src = iframeLinks[currentIndex];
+function updateButtons() {
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === shuffledLinks.length - 1;
+}
+
+function updateIframe() {
+    updateButtons();
+    iframeContainer.src = shuffledLinks[currentIndex];
+}
+
+prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + shuffledLinks.length) % shuffledLinks.length;
+    updateIframe();
+});
+
+nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % shuffledLinks.length;
+    updateIframe();
+});
+
+// Initial load
+updateIframe();
