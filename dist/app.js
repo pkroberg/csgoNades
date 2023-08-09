@@ -52,12 +52,11 @@ function selectedSmall() {
 
 const originalIframeLinks = [
     //iframe links
-    'https://gfycat.com/ifr/darktalkativefieldmouse?hd=1&speed=2',
-    'https://gfycat.com/ifr/brilliantviciousbullfrog?hd=1&speed=2',
-    'https://gfycat.com/ifr/youngpoisedcattle?hd=1&speed=2',
-    'https://gfycat.com/ifr/grandiosebriskhawk?hd=1&speed=2',
-    'https://gfycat.com/ifr/secretevilblueshark?hd=1&speed=2',
-    'https://gfycat.com/ifr/embarrassedmedicalgemsbok?hd=1&speed=2'
+
+
+
+    // 'https://youtube.com/embed/j2qzVCj0BwI?autoplay=1',
+    'https://www.youtube.com/embed/C3_cFIGT-ik?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=C3_cFIGT-ik',
 ];
 
 let shuffledLinks = shuffleArray(originalIframeLinks);
