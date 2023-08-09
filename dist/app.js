@@ -52,11 +52,11 @@ function selectedSmall() {
 
 const originalIframeLinks = [
     //iframe links
+    //link template
+    //https://www.youtube.com/embed/'VIDEOID'?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist='VIDEOID'
 
-
-
-    // 'https://youtube.com/embed/j2qzVCj0BwI?autoplay=1',
-    'https://www.youtube.com/embed/C3_cFIGT-ik?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=C3_cFIGT-ik',
+    'https://www.youtube.com/embed/j2qzVCj0BwI?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=j2qzVCj0BwI',
+    'https://www.youtube.com/embed/C3_cFIGT-ik?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=C3_cFIGT-ik'
 ];
 
 let shuffledLinks = shuffleArray(originalIframeLinks);

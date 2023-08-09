@@ -64,14 +64,16 @@
     </header>
 
     <body>
-        <div class="flex flex-col">
-            <iframe class="w-full aspect-video" id="iframeContainer" src=originalIframeLinks width="1280" height="720"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-            <!-- <iframe class="embed-responsive-item" id="ytplayer" type="text/html" width="640" height="360"
-                src="https://www.youtube.com/embed/M7lc1UVf-VE?&autoplay=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=M7lc1UVf-VE"
-                frameborder="0" allowfullscreen></iframe> -->
-            <button id="prevButton">Previous</button><button id="nextButton">Next</button>
+        <iframe class="w-full aspect-video" id="iframeContainer" src=originalIframeLinks width="1280" height="720"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+
+        <!-- buttons -->
+        <div class="flex items-center justify-center">
+            <button id="prevButton"
+                class="text-light-text bg-black cursor-pointer px-3 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3 mx-5">Previous</button>
+            <button id="nextButton"
+                class="text-light-text bg-black cursor-pointer px-6 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3 mx-5">Next</button>
         </div>
 
     </body>
