@@ -1012,4 +1012,13 @@ video {
   .\32xl\:w-96 {
     width: 24rem;
   }
+
+  .\32xl\:rounded-full {
+    border-radius: 9999px;
+  }
+
+  .\32xl\:rounded-b-3xl {
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
 }
