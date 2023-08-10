@@ -11,33 +11,33 @@
 <body class="bg-monkey-grey">
     <header>
         <div class="2xl:container 2xl:mx-auto">
-            <div class="bg-black rounded-full shadow-lg py-2 px-40">
+            <div class="bg-black rounded-full shadow-lg py-2 px-16 sm:px-32 md:px-32">
                 <nav class="flex justify-between">
-                    <div class="flex items-center space-x-6 lg:pr-16 pr-6">
+                    <div class="m-auto lg:m-0 flex items-center space-x-6">
                         <img class="cursor-pointer bg-monkey-grey p-1 rounded-full w-16"
                             src="pics/Smokegrenadehud_csgo.jpg" alt="circle" />
                         <h2 class="font-normal text-2xl leading-6 text-gray-800 dark:text-light-text">
                             CS2 Nades Quick-Study
                         </h2>
                     </div>
-                    <div class="xl:w-96"></div>
-                    <div class="xl:w-40"></div>
+                    <!-- <div class="2xl:w-96 xl:w-72"></div>
+                    <div class="2xl:w-40"></div> -->
 
                     <!-- For medium and plus sized devices -->
-                    <ul class="hidden md:flex flex-auto space-x-5 ">
+                    <ul class="hidden lg:flex space-x-5 justify-center items-center pl-2 pb-2">
                         <li onclick="selected()"
                             class="text-light-text bg-monkey-grey cursor-pointer px-3 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3">
                             Mirage</li>
                         <li onclick="" id="moreToCome"
                             class="text-light-text bg-monkey-grey cursor-pointer px-3 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3">
-                            More maps to come</li>
+                            More maps soon</li>
                     </ul>
                 </nav>
                 <!-- for smaller devcies -->
 
-                <div class="block md:hidden w-full mt-5">
+                <div class="block lg:hidden w-full mt-5">
                     <div onclick="selectNew()"
-                        class="cursor-pointer px-4 py-3 text-white bg-monkey-grey rounded flex justify-between items-center w-full">
+                        class="cursor-pointer px-4 py-3 text-white bg-monkey-grey rounded-full flex justify-between items-center w-full">
                         <div class="flex space-x-2">
                             <span id="s1" class="font-semibold text-sm leading-3 hidden">Selected: </span>
                             <p id="textClicked"
@@ -71,9 +71,9 @@
         <!-- buttons -->
         <div class="flex items-center justify-center">
             <button id="prevButton"
-                class="text-light-text bg-black cursor-pointer px-3 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3 mx-5">Previous</button>
+                class="text-light-text bg-black cursor-pointer px-3 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3 mb-3 mx-5">Previous</button>
             <button id="nextButton"
-                class="text-light-text bg-black cursor-pointer px-6 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3 mx-5">Next</button>
+                class="text-light-text bg-black cursor-pointer px-6 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3 mb-3 mx-5">Next</button>
         </div>
 
     </body>
