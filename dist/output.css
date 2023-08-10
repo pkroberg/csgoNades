@@ -650,6 +650,16 @@ video {
   border-radius: 9999px;
 }
 
+.rounded-t-full {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+.rounded-t-3xl {
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -746,6 +756,11 @@ video {
 .px-16 {
   padding-left: 4rem;
   padding-right: 4rem;
+}
+
+.px-32 {
+  padding-left: 8rem;
+  padding-right: 8rem;
 }
 
 .pb-2 {
@@ -905,6 +920,21 @@ video {
     padding-left: 8rem;
     padding-right: 8rem;
   }
+
+  .sm\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .sm\:px-28 {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+
+  .sm\:px-36 {
+    padding-left: 9rem;
+    padding-right: 9rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -936,6 +966,11 @@ video {
   .md\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+  .md\:px-40 {
+    padding-left: 10rem;
+    padding-right: 10rem;
   }
 }
 
