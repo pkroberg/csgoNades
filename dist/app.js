@@ -5,14 +5,6 @@ function selected() {
     var child=clicked.children;
     console.log(child);
 
-    for (let i=0; i<child.length; i++) {
-        if (child[i].classList.contains("text-gray-600")) {
-            console.log(child[i]);
-            child[i].classList.add("text-light-text", "bg-indigo-600");
-            child[i].classList.remove("text-gray-600", "bg-gray-50", "border", "border-accent-yellow");
-        }
-    }
-
     targeted.classList.add("text-gray-600", "bg-gray-50", "border", "border-accent-yellow");
     targeted.classList.remove("text-white", "bg-indigo-600");
 }
@@ -37,7 +29,6 @@ function selectedSmall() {
         }
     }
 
-    // targeted.classList.remove("text-gray-600", "bg-gray-50", "border", "border-white");
 
     document.getElementById("s1").classList.add("hidden");
     document.getElementById("textClicked").innerHTML=targeted.innerHTML;
@@ -97,3 +88,12 @@ nextButton.addEventListener('click', () => {
 
 // Initial load
 updateIframe();
+
+
+//popup
+$(document).ready(function () {
+    if (sessionStorage.getItem('#popup')!=='true') {
+        $('#popup').modal('show');
+        sessionStorage.setItem('#popup', true);
+    }
+});
