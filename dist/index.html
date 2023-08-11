@@ -79,7 +79,56 @@
     </div>
 
     <!-- Popup -->
-
+    <button
+        class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        type="button" onclick="toggleModal('modal-id')">
+        Open regular modal
+    </button>
+    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
+        id="modal-id">
+        <div class="relative w-auto my-6 mx-auto max-w-3xl">
+            <!--content-->
+            <div
+                class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                <!--header-->
+                <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                    <h3 class="text-3xl font-semibold">
+                        What is CS2 Nades Quick-Study?
+                    </h3>
+                    <button
+                        class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                        onclick="toggleModal('modal-id')">
+                        <span
+                            class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                            ×
+                        </span>
+                    </button>
+                </div>
+                <!--body-->
+                <div class="relative p-6 flex-auto">
+                    <p class="my-4 text-slate-500 text-lg leading-relaxed">
+                        Welcome to "CS2 Nades Quick-Study," the ultimate destination for honing your CS:GO grenade
+                        expertise!
+                        This website offers a unique and effective way to learn grenade lineups through a quick
+                        slideshow-like experience. Dive into a collection of hand picked videos showcasing precise
+                        grenade throws for various in-game situations. Best for a newcomer eager to master grenade
+                        tactics, CS2 Nades Quick-Study provides an quick, engaging
+                        platform to elevate your gameplay when you're in queue for your next match. Get ready to
+                        dominate the battlefield with pinpoint accuracy
+                        as you explore the set of dynamic shuffled lineups.
+                    </p>
+                </div>
+                <!--footer-->
+                <button
+                    class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mb-1 mx-1 ease-linear transition-all duration-150"
+                    type="button" onclick="toggleModal('modal-id')">
+                    Learn Lineups
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
 </body>
 <script src="app.js"></script>
 
