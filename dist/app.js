@@ -90,10 +90,24 @@ nextButton.addEventListener('click', () => {
 updateIframe();
 
 
-//popup
-function toggleModal(modalID) {
-    document.getElementById(modalID).classList.toggle("hidden");
-    // document.getElementById(modalID+"-backdrop").classList.toggle("hidden");
-    document.getElementById(modalID).classList.toggle("flex");
-    // document.getElementById(modalID+"-backdrop").classList.toggle("flex");
+// popup
+// localStorage.clear();
+// Function to toggle the modal
+function toggleModal(modalId) {
+    const modal=document.getElementById(modalId);
+    modal.classList.toggle('hidden');
+    modal.classList.toggle('flex');
+}
+
+// // Toggle the modal on page load
+// window.addEventListener('load', function () {
+//         toggleModal('modal-id');
+// });
+
+//Toggle the modal on page load ONLY ONCE (if local storage is not being cleared)
+window.onload=function () {
+    if (localStorage.getItem("hasCodeRunBefore")===null) {
+        toggleModal('modal-id');
+        localStorage.setItem("hasCodeRunBefore", true);
+    }
 }
