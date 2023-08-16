@@ -586,6 +586,10 @@ video {
   margin: auto;
 }
 
+.m-11 {
+  margin: 2.75rem;
+}
+
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
@@ -879,6 +883,11 @@ video {
   background-color: transparent;
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -945,6 +954,10 @@ video {
 
 .pl-2 {
   padding-left: 0.5rem;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .text-2xl {
@@ -1180,6 +1193,11 @@ video {
   border-radius: 9999px;
 }
 
+.before\:rounded-lg::before {
+  content: var(--tw-content);
+  border-radius: 0.5rem;
+}
+
 .before\:opacity-0::before {
   content: var(--tw-content);
   opacity: 0;
@@ -1197,15 +1215,31 @@ video {
   border-color: rgb(236 72 153 / var(--tw-border-opacity));
 }
 
+.checked\:border-accent-yellow:checked {
+  --tw-border-opacity: 1;
+  border-color: rgb(253 197 0 / var(--tw-border-opacity));
+}
+
 .checked\:bg-pink-500:checked {
   --tw-bg-opacity: 1;
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+}
+
+.checked\:bg-accent-yellow:checked {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 197 0 / var(--tw-bg-opacity));
 }
 
 .checked\:before\:bg-pink-500:checked::before {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+}
+
+.checked\:before\:bg-accent-yellow:checked::before {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 197 0 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-800:hover {
@@ -1261,8 +1295,36 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:m-10 {
+    margin: 2.5rem;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
   .sm\:max-h-full {
     max-height: 100%;
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:items-center {
+    align-items: center;
+  }
+
+  .sm\:items-stretch {
+    align-items: stretch;
+  }
+
+  .sm\:justify-between {
+    justify-content: space-between;
+  }
+
+  .sm\:justify-items-center {
+    justify-items: center;
   }
 }
 
