@@ -42,7 +42,6 @@ function selectedSmall() {
 // Shuffle links
 
 const originalIframeLinks=[
-    //iframe links
     //link template
     //https://www.youtube.com/embed/'VIDEOID'?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist='VIDEOID'
 
@@ -98,11 +97,6 @@ function toggleModal(modalId) {
     modal.classList.toggle('hidden');
     modal.classList.toggle('flex');
 }
-
-// // Toggle the modal on page load
-// window.addEventListener('load', function () {
-//         toggleModal('modal-id');
-// });
 
 //Toggle the modal on page load ONLY ONCE (if local storage is not being cleared)
 window.onload=function () {
