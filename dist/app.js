@@ -79,10 +79,15 @@ function updateIframe() {
     iframeContainer.src=shuffledLinks[currentIndex].link;
 }
 
+function addVideoBackToShuffle(link, title) {
+    shuffledLinks.push({ link, title });
+    removedVideosList.removeChild(document.getElementById(title));
+}
+
 prevButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
-        removedVideosList.innerHTML+=`<li>${shuffledLinks[currentIndex].title}</li>`;
-        shuffledLinks.splice(currentIndex, 1);
+        const removedVideo = shuffledLinks[currentIndex];
+        removedVideosList.innerHTML += `<li id="${removedVideo.title}" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;        shuffledLinks.splice(currentIndex, 1);
         currentIndex=Math.max(currentIndex-1, 0);
     } else {
         currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
@@ -93,7 +98,8 @@ prevButton.addEventListener('click', () => {
 
 nextButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
-        removedVideosList.innerHTML+=`<li>${shuffledLinks[currentIndex].title}</li>`;
+        const removedVideo = shuffledLinks[currentIndex];
+        removedVideosList.innerHTML += `<li id="${removedVideo.title}" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
         shuffledLinks.splice(currentIndex, 1);
     }
     currentIndex=(currentIndex+1)%shuffledLinks.length;
