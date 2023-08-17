@@ -43,10 +43,12 @@ function selectedSmall() {
 
 const originalIframeLinks=[
     //link template
-    //https://www.youtube.com/embed/'VIDEOID'?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist='VIDEOID'
+    //https://www.youtube.com/embed/'VIDEOID'?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist='VIDEOID'
 
-    'https://www.youtube.com/embed/j2qzVCj0BwI?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=j2qzVCj0BwI',
-    'https://www.youtube.com/embed/C3_cFIGT-ik?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=C3_cFIGT-ik'
+    { link: 'https://www.youtube.com/embed/j2qzVCj0BwI?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd720&playlist=j2qzVCj0BwI', title: 'Mirage Stairs Smoke from T Roof' },
+    { link: 'https://www.youtube.com/embed/C3_cFIGT-ik?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd720&playlist=C3_cFIGT-ik', title: 'SCOOTING IS BETTER THAN SKATEBOARDING' },
+    { link: 'https://www.youtube.com/embed/DTUYGgP3jBc?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=DTUYGgP3jBc', title: 'Mirage Jungle and Connector Smoke from T Roof' },
+    { link: 'https://www.youtube.com/embed/qkqJdYzkVLk?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=qkqJdYzkVLk', title: 'Mirage Stairs Smoke from Tetris' }
 ];
 
 let shuffledLinks=shuffleArray(originalIframeLinks);
@@ -55,6 +57,8 @@ let currentIndex=0;
 const prevButton=document.getElementById('prevButton');
 const nextButton=document.getElementById('nextButton');
 const iframeContainer=document.getElementById('iframeContainer');
+const removeCheckbox=document.getElementById('removeCheckbox');
+const removedVideosList=document.getElementById('removedVideosList');
 
 function shuffleArray(array) {
     const shuffledArray=[...array];
@@ -72,16 +76,28 @@ function updateButtons() {
 
 function updateIframe() {
     updateButtons();
-    iframeContainer.src=shuffledLinks[currentIndex];
+    iframeContainer.src=shuffledLinks[currentIndex].link;
 }
 
 prevButton.addEventListener('click', () => {
-    currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
+    if (removeCheckbox.checked) {
+        removedVideosList.innerHTML+=`<li>${shuffledLinks[currentIndex].title}</li>`;
+        shuffledLinks.splice(currentIndex, 1);
+        currentIndex=Math.max(currentIndex-1, 0);
+    } else {
+        currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
+    }
+    removeCheckbox.checked=false;
     updateIframe();
 });
 
 nextButton.addEventListener('click', () => {
+    if (removeCheckbox.checked) {
+        removedVideosList.innerHTML+=`<li>${shuffledLinks[currentIndex].title}</li>`;
+        shuffledLinks.splice(currentIndex, 1);
+    }
     currentIndex=(currentIndex+1)%shuffledLinks.length;
+    removeCheckbox.checked=false;
     updateIframe();
 });
 
@@ -89,8 +105,6 @@ nextButton.addEventListener('click', () => {
 updateIframe();
 
 
-// popup
-// localStorage.clear();
 // Function to toggle the modal
 function toggleModal(modalId) {
     const modal=document.getElementById(modalId);
@@ -105,3 +119,6 @@ window.onload=function () {
         localStorage.setItem("hasCodeRunBefore", true);
     }
 }
+
+
+// localStorage.clear();
