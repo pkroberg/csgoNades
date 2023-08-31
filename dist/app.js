@@ -86,8 +86,8 @@ function addVideoBackToShuffle(link, title) {
 
 prevButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
-        const removedVideo = shuffledLinks[currentIndex];
-        removedVideosList.innerHTML += `<li id="${removedVideo.title}" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;        shuffledLinks.splice(currentIndex, 1);
+        const removedVideo=shuffledLinks[currentIndex];
+        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer" id="${removedVideo.title}" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`; shuffledLinks.splice(currentIndex, 1);
         currentIndex=Math.max(currentIndex-1, 0);
     } else {
         currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
@@ -98,8 +98,8 @@ prevButton.addEventListener('click', () => {
 
 nextButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
-        const removedVideo = shuffledLinks[currentIndex];
-        removedVideosList.innerHTML += `<li id="${removedVideo.title}" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
+        const removedVideo=shuffledLinks[currentIndex];
+        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer" id="${removedVideo.title}" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
         shuffledLinks.splice(currentIndex, 1);
     }
     currentIndex=(currentIndex+1)%shuffledLinks.length;
