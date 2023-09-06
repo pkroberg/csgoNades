@@ -45,7 +45,7 @@ const originalIframeLinks=[
     //link template
     //https://www.youtube.com/embed/'VIDEOID'?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist='VIDEOID'
 
-    { link: 'https://www.youtube.com/embed/j2qzVCj0BwI?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd720&playlist=j2qzVCj0BwI', title: 'Mirage Stairs Smoke from T Roof' },
+    { link: 'https://www.youtube.com/embed/j2qzVCj0BwI?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd720&playlist=j2qzVCj0BwI', title: 'Stairs Smoke from T Roof' },
     { link: 'https://www.youtube.com/embed/C3_cFIGT-ik?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd720&playlist=C3_cFIGT-ik', title: 'SCOOTING IS BETTER THAN SKATEBOARDING' },
     { link: 'https://www.youtube.com/embed/DTUYGgP3jBc?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=DTUYGgP3jBc', title: 'Mirage Jungle and Connector Smoke from T Roof' },
     { link: 'https://www.youtube.com/embed/qkqJdYzkVLk?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=qkqJdYzkVLk', title: 'Mirage Stairs Smoke from Tetris' }
@@ -54,6 +54,7 @@ const originalIframeLinks=[
 let shuffledLinks=shuffleArray(originalIframeLinks);
 let currentIndex=0;
 
+const mirageMap=document.getElementById("mirageMap");
 const prevButton=document.getElementById('prevButton');
 const nextButton=document.getElementById('nextButton');
 const iframeContainer=document.getElementById('iframeContainer');
@@ -87,7 +88,7 @@ function addVideoBackToShuffle(link, title) {
 prevButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
         const removedVideo=shuffledLinks[currentIndex];
-        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer" id="${removedVideo.title}" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`; shuffledLinks.splice(currentIndex, 1);
+        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`; shuffledLinks.splice(currentIndex, 1);
         currentIndex=Math.max(currentIndex-1, 0);
     } else {
         currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
@@ -99,7 +100,7 @@ prevButton.addEventListener('click', () => {
 nextButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
         const removedVideo=shuffledLinks[currentIndex];
-        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer" id="${removedVideo.title}" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
+        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
         shuffledLinks.splice(currentIndex, 1);
     }
     currentIndex=(currentIndex+1)%shuffledLinks.length;
@@ -126,5 +127,9 @@ window.onload=function () {
     }
 }
 
+//reload page
+mirageMap.addEventListener("click", function () {
+    location.reload();
+});
 
 // localStorage.clear();
