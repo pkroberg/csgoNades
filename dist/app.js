@@ -119,7 +119,7 @@ function toggleModal(modalId) {
     modal.classList.toggle('flex');
 }
 
-//Toggle the modal on page load ONLY ONCE (if local storage is not being cleared)
+// Toggle the modal on page load ONLY ONCE(if local storage is not being cleared)
 window.onload=function () {
     if (localStorage.getItem("hasCodeRunBefore")===null) {
         toggleModal('modal-id');
@@ -132,4 +132,4 @@ mirageMap.addEventListener("click", function () {
     location.reload();
 });
 
-// localStorage.clear();
+localStorage.clear();
