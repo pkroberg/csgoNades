@@ -639,8 +639,16 @@ video {
   display: block;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
 }
 
 .hidden {
@@ -1050,10 +1058,6 @@ video {
 
 .underline {
   text-decoration-line: underline;
-}
-
-.underline-offset-auto {
-  text-underline-offset: auto;
 }
 
 .opacity-0 {
