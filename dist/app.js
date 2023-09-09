@@ -121,8 +121,8 @@ function toggleModal(modalId) {
 
 // Check if the "Don't show this again" option is set in localStorage
 const dontShowModal=localStorage.getItem('dontShowModal');
-if (dontShowModal==='true') {
-    // If it's set to true, don't show the modal
+if (!dontShowModal||dontShowModal!=='true') {
+    // If it's not set or set to false, show the modal
     toggleModal('modal-id');
 }
 
@@ -139,10 +139,10 @@ dontShowAgainCheckbox.addEventListener('change', function () {
     }
 })
 
-// Toggle the modal on page load
-window.onload=function () {
-    toggleModal('modal-id');
-}
+// // Toggle the modal on page load
+// window.onload=function () {
+//     toggleModal('modal-id');
+// }
 
 //reload page
 mirageMap.addEventListener("click", function () {
