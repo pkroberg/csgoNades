@@ -60,6 +60,7 @@ const nextButton=document.getElementById('nextButton');
 const iframeContainer=document.getElementById('iframeContainer');
 const removeCheckbox=document.getElementById('removeCheckbox');
 const removedVideosList=document.getElementById('removedVideosList');
+const dontShowAgainCheckbox=document.getElementById('dontShowAgainCheckbox');
 
 function shuffleArray(array) {
     const shuffledArray=[...array];
@@ -111,7 +112,6 @@ nextButton.addEventListener('click', () => {
 // Initial load
 updateIframe();
 
-
 // Function to toggle the modal
 function toggleModal(modalId) {
     const modal=document.getElementById(modalId);
@@ -119,12 +119,29 @@ function toggleModal(modalId) {
     modal.classList.toggle('flex');
 }
 
-// Toggle the modal on page load ONLY ONCE(if local storage is not being cleared)
-window.onload=function () {
-    if (localStorage.getItem("hasCodeRunBefore")===null) {
-        toggleModal('modal-id');
-        localStorage.setItem("hasCodeRunBefore", true);
+// Check if the "Don't show this again" option is set in localStorage
+const dontShowModal=localStorage.getItem('dontShowModal');
+if (dontShowModal==='true') {
+    // If it's set to true, don't show the modal
+    toggleModal('modal-id');
+}
+
+//"Don't Show this again checkbox" event lisinter
+dontShowAgainCheckbox.addEventListener('change', function () {
+    if (dontShowAgainCheckbox.checked) {
+        console.log('Checkbox is checked');
+        // Save the state in localStorage so it persists across page reloads
+        localStorage.setItem('dontShowModal', 'true');
+    } else {
+        console.log('Checkbox is unchecked');
+        // Remove the state from localStorage
+        localStorage.removeItem('dontShowModal');
     }
+})
+
+// Toggle the modal on page load
+window.onload=function () {
+    toggleModal('modal-id');
 }
 
 //reload page
@@ -132,4 +149,4 @@ mirageMap.addEventListener("click", function () {
     location.reload();
 });
 
-localStorage.clear();
+// localStorage.clear();
