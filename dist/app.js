@@ -72,7 +72,7 @@ function shuffleArray(array) {
 }
 
 function updateButtons() {
-    prevButton.disabled=currentIndex===0;
+    // prevButton.disabled=currentIndex===0;
     // nextButton.disabled=currentIndex===shuffledLinks.length-1;
 }
 
@@ -154,8 +154,8 @@ removeCheckbox.addEventListener('change', function () {
 });
 
 //reload page
-mirageMap.addEventListener("click", function () {
-    location.reload();
-});
+// mirageMap.addEventListener("click", function () {
+//     location.reload();
+// });
 
 // localStorage.clear();
