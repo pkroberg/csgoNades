@@ -121,8 +121,8 @@ function toggleModal(modalId) {
 
 // Check if the "Don't show this again" option is set in localStorage
 const dontShowModal=localStorage.getItem('dontShowModal');
+// If it's not set or set to false, show the modal
 if (!dontShowModal||dontShowModal!=='true') {
-    // If it's not set or set to false, show the modal
     toggleModal('modal-id');
 }
 
@@ -137,9 +137,10 @@ dontShowAgainCheckbox.addEventListener('change', function () {
     }
 })
 
-// Function to log "worked"
-function logWorked() {
-    console.log("worked");
+// Function to toggle the "finishedArrayModal"
+function toggleFinishedArrayModal() {
+    finishedArrayModal.classList.toggle('hidden');
+    finishedArrayModal.classList.toggle('flex');
 }
 
 // Event listener for the "I know this lineup" checkbox
@@ -147,7 +148,7 @@ removeCheckbox.addEventListener('change', function () {
     if (removeCheckbox.checked) {
         const isLastVideo=currentIndex===shuffledLinks.length-1;
         if (isLastVideo) {
-            logWorked();
+            toggleFinishedArrayModal(); // Show the "finishedArrayModal"
         }
     }
 });

@@ -177,6 +177,68 @@
             </div>
         </div>
     </div>
+
+    <!-- Finished Array Modal -->
+    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
+        id="finishedArrayModal">
+        <div class="relative w-auto my-6 mx-auto max-w-3xl">
+            <!--content-->
+            <div
+                class="border-0 rounded-xl shadow-lg relative flex flex-col w-full bg-monkey-grey outline-none focus:outline-none">
+                <!--header-->
+                <div class="flex items-start justify-between p-5 border-b border-solid border-light-text rounded-t">
+                    <h3 class="text-3xl font-semibold text-light-text">
+                        What is CS2 Nades Quick-Study?
+                    </h3>
+                    <button
+                        class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                        onclick="toggle('modal-id')">
+                        <span
+                            class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                            ×
+                        </span>
+                    </button>
+                </div>
+                <!--body-->
+                <div class="relative p-6 flex-auto">
+                    <p class="my-4 text-light-text text-lg leading-relaxed">
+                        Welcome to 'CS2 Nades Quick-Study,' your ultimate resource for mastering CS:GO grenade lineups.
+                        Explore
+                        precise grenade throws through hand picked videos, perfect for newcomers. Elevate your gameplay
+                        while in queue for your next match. Dominate your match with pinpoint accuracy using
+                        dynamic shuffled lineups.
+                    </p>
+                </div>
+                <!--footer-->
+                <button
+                    class="bg-accent-yellow text-black active:bg-yellow-400 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mb-1 mx-1 ease-linear transition-all duration-150"
+                    type="button" onclick="toggleModal('modal-id')">
+                    Learn Lineups
+                </button>
+                <!-- Checkbox -->
+                <div class="flex items-center justify-end pr-3">
+                    <label class="relative flex cursor-pointer items-center rounded-full p-3" for="checkbox"
+                        data-ripple-dark="true">
+                        <input type="checkbox" id="dontShowAgainCheckbox" title="Remove from shuffle"
+                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-accent-yellow checked:bg-accent-yellow checked:before:bg-accent-yellow hover:before:opacity-10"
+                            id="checkbox" />
+                        <div
+                            class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-black opacity-0 transition-opacity peer-checked:opacity-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20"
+                                fill="currentColor" stroke="currentColor" stroke-width="1">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </label>
+                    <div class="text-light-text cursor-default" title="Remove from shuffle">Don't show this
+                        again
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script src="app.js"></script>
