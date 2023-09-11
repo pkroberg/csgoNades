@@ -143,6 +143,19 @@ function toggleFinishedArrayModal() {
     finishedArrayModal.classList.toggle('flex');
 }
 
+// Function to reset the shuffleArray and removedVideosList
+function resetShuffle() {
+    shuffledLinks=shuffleArray(originalIframeLinks);
+    removedVideosList.innerHTML=''; // Clear the removedVideosList
+    currentIndex=0;
+    updateIframe();
+    toggleFinishedArrayModal(); // Hide the "Finished Array Modal"
+}
+
+// Event listener for the "Go again!" button in the "Finished Array Modal"
+document.getElementById('finishedArrayModal').querySelector('button').addEventListener('click', resetShuffle);
+
+
 // Event listener for the "I know this lineup" checkbox
 removeCheckbox.addEventListener('change', function () {
     if (removeCheckbox.checked) {
@@ -153,9 +166,9 @@ removeCheckbox.addEventListener('change', function () {
     }
 });
 
-//reload page
-// mirageMap.addEventListener("click", function () {
-//     location.reload();
-// });
+// reload page
+mirageMap.addEventListener("click", function () {
+    location.reload();
+});
 
 // localStorage.clear();
