@@ -73,7 +73,7 @@ function shuffleArray(array) {
 
 function updateButtons() {
     prevButton.disabled=currentIndex===0;
-    nextButton.disabled=currentIndex===shuffledLinks.length-1;
+    // nextButton.disabled=currentIndex===shuffledLinks.length-1;
 }
 
 function updateIframe() {
@@ -129,20 +129,28 @@ if (!dontShowModal||dontShowModal!=='true') {
 //"Don't Show this again checkbox" event lisinter
 dontShowAgainCheckbox.addEventListener('change', function () {
     if (dontShowAgainCheckbox.checked) {
-        console.log('Checkbox is checked');
         // Save the state in localStorage so it persists across page reloads
         localStorage.setItem('dontShowModal', 'true');
     } else {
-        console.log('Checkbox is unchecked');
         // Remove the state from localStorage
         localStorage.removeItem('dontShowModal');
     }
 })
 
-// // Toggle the modal on page load
-// window.onload=function () {
-//     toggleModal('modal-id');
-// }
+// Function to log "worked"
+function logWorked() {
+    console.log("worked");
+}
+
+// Event listener for the "I know this lineup" checkbox
+removeCheckbox.addEventListener('change', function () {
+    if (removeCheckbox.checked) {
+        const isLastVideo=currentIndex===shuffledLinks.length-1;
+        if (isLastVideo) {
+            logWorked();
+        }
+    }
+});
 
 //reload page
 mirageMap.addEventListener("click", function () {
