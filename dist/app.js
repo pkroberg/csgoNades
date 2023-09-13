@@ -1,3 +1,4 @@
+//Small screen functionality
 function selected() {
     var targeted=event.target;
     var clicked=targeted.parentElement;
@@ -55,12 +56,14 @@ let shuffledLinks=shuffleArray(originalIframeLinks);
 let currentIndex=0;
 
 const mirageMap=document.getElementById("mirageMap");
+const mirageMapSmall=document.getElementById("mirageMapSmall");
 const prevButton=document.getElementById('prevButton');
 const nextButton=document.getElementById('nextButton');
 const iframeContainer=document.getElementById('iframeContainer');
 const removeCheckbox=document.getElementById('removeCheckbox');
 const removedVideosList=document.getElementById('removedVideosList');
 const dontShowAgainCheckbox=document.getElementById('dontShowAgainCheckbox');
+const finishedArrayModal=document.getElementById('finishedArrayModal');
 
 function shuffleArray(array) {
     const shuffledArray=[...array];
@@ -101,7 +104,7 @@ prevButton.addEventListener('click', () => {
 nextButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
         const removedVideo=shuffledLinks[currentIndex];
-        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
+        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline" id="${removedVideo.title}" title="Click to add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
         shuffledLinks.splice(currentIndex, 1);
     }
     currentIndex=(currentIndex+1)%shuffledLinks.length;
@@ -150,10 +153,14 @@ function resetShuffle() {
     currentIndex=0;
     updateIframe();
     toggleFinishedArrayModal(); // Hide the "Finished Array Modal"
+    // Uncheck the "I know this lineup" checkbox
+    removeCheckbox.checked=false;
 }
 
 // Event listener for the "Go again!" button in the "Finished Array Modal"
-document.getElementById('finishedArrayModal').querySelector('button').addEventListener('click', resetShuffle);
+finishedArrayModal.querySelector('button').addEventListener('click', function () {
+    resetShuffle();
+});
 
 
 // Event listener for the "I know this lineup" checkbox
@@ -167,8 +174,12 @@ removeCheckbox.addEventListener('change', function () {
 });
 
 // reload page
-mirageMap.addEventListener("click", function () {
+function reloadPage() {
     location.reload();
-});
+}
+
+mirageMap.addEventListener("click", reloadPage);
+mirageMapSmall.addEventListener("click", reloadPage);
+
 
 // localStorage.clear();
