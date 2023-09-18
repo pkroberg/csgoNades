@@ -61,6 +61,7 @@ const prevButton=document.getElementById('prevButton');
 const nextButton=document.getElementById('nextButton');
 const iframeContainer=document.getElementById('iframeContainer');
 const removeCheckbox=document.getElementById('removeCheckbox');
+const removedVideosListTitle=document.getElementById('removedVideosListTitle');
 const removedVideosList=document.getElementById('removedVideosList');
 const dontShowAgainCheckbox=document.getElementById('dontShowAgainCheckbox');
 const finishedArrayModal=document.getElementById('finishedArrayModal');
@@ -106,6 +107,13 @@ nextButton.addEventListener('click', () => {
         const removedVideo=shuffledLinks[currentIndex];
         removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline" id="${removedVideo.title}" title="Click to add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
         shuffledLinks.splice(currentIndex, 1);
+    }
+    // Check if there are list elements inside the removedVideosList
+    if (removedVideosList.children.length>0) {
+        // Remove the "hidden" class if there are list elements
+        removedVideosList.classList.remove('hidden');
+        removedVideosListTitle.classList.remove('hidden');
+        removedVideosListTitle.classList.add('flex');
     }
     currentIndex=(currentIndex+1)%shuffledLinks.length;
     removeCheckbox.checked=false;
