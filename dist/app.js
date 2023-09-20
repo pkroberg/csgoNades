@@ -71,6 +71,7 @@ const removedVideosListTitle=document.getElementById('removedVideosListTitle');
 const removedVideosList=document.getElementById('removedVideosList');
 const dontShowAgainCheckbox=document.getElementById('dontShowAgainCheckbox');
 const finishedArrayModal=document.getElementById('finishedArrayModal');
+const iKnowThisLineupDiv=document.getElementById('iKnowThisLineup');
 
 function shuffleArray(array) {
     const shuffledArray=[...array];
@@ -99,7 +100,7 @@ function addVideoBackToShuffle(link, title) {
 prevButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
         const removedVideo=shuffledLinks[currentIndex];
-        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`; shuffledLinks.splice(currentIndex, 1);
+        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`; shuffledLinks.splice(currentIndex, 1);
         currentIndex=Math.max(currentIndex-1, 0);
     } else {
         currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
@@ -111,7 +112,7 @@ prevButton.addEventListener('click', () => {
 nextButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
         const removedVideo=shuffledLinks[currentIndex];
-        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline" id="${removedVideo.title}" title="Click to add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
+        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Click to add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
         shuffledLinks.splice(currentIndex, 1);
     }
     // Check if there are list elements inside the removedVideosList
@@ -143,7 +144,7 @@ if (!dontShowModal||dontShowModal!=='true') {
     toggleModal('modal-id');
 }
 
-//"Don't Show this again checkbox" event lisinter
+//"Don't Show this again checkbox" event lisenter
 dontShowAgainCheckbox.addEventListener('change', function () {
     if (dontShowAgainCheckbox.checked) {
         // Save the state in localStorage so it persists across page reloads
@@ -153,8 +154,13 @@ dontShowAgainCheckbox.addEventListener('change', function () {
         localStorage.removeItem('dontShowModal');
     }
 })
+//"Don't Show this again checkbox" div event listener
+iKnowThisLineupDiv.addEventListener('click', function () {
+    // Toggle the state of the removeCheckbox
+    removeCheckbox.checked=!removeCheckbox.checked;
+});
 
-// Function to toggle the "finishedArrayModal"
+// Function to show the "finishedArrayModal"
 function toggleFinishedArrayModal() {
     finishedArrayModal.classList.toggle('hidden');
     finishedArrayModal.classList.toggle('flex');
@@ -167,22 +173,23 @@ function resetShuffle() {
     currentIndex=0;
     updateIframe();
     toggleFinishedArrayModal(); // Hide the "Finished Array Modal"
-    // Uncheck the "I know this lineup" checkbox
-    removeCheckbox.checked=false;
+    removeCheckbox.checked=false; //Uncheck the "I know this lineup" checkbox
 }
 
-// Event listener for the "Go again!" button in the "Finished Array Modal"
+// Event listener for the "CLOSE" button in the "Finished Array Modal"
 finishedArrayModal.querySelector('button').addEventListener('click', function () {
     resetShuffle();
+    removedVideosList.classList.add('hidden');
+    removedVideosListTitle.classList.add('hidden');
+    removedVideosListTitle.classList.remove('flex');
 });
 
 
 // Event listener for the "I know this lineup" checkbox
 removeCheckbox.addEventListener('change', function () {
     if (removeCheckbox.checked) {
-        const isLastVideo=currentIndex===shuffledLinks.length-1;
-        if (isLastVideo) {
-            toggleFinishedArrayModal(); // Show the "finishedArrayModal"
+        if (shuffledLinks.length===1) {
+            toggleFinishedArrayModal();
         }
     }
 });
