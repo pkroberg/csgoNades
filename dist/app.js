@@ -196,6 +196,15 @@ removeCheckbox.addEventListener('change', function () {
     }
 });
 
+// Event listener for the "I know this lineup" div
+iKnowThisLineupDiv.addEventListener('click', function () {
+    if (removeCheckbox.checked) {
+        if (shuffledLinks.length===1) {
+            toggleFinishedArrayModal();
+        }
+    }
+});
+
 // reload page
 function reloadPage() {
     location.reload();
