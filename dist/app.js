@@ -56,6 +56,7 @@ const originalIframeLinks=[
     { link: 'https://www.youtube.com/embed/dOCdLL9J0Cw?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=dOCdLL9J0Cw', title: 'Cat Smoke' },
     { link: 'https://www.youtube.com/embed/o_AqVvKNV6E?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=o_AqVvKNV6E', title: 'Connector Smoke' },
     { link: 'https://www.youtube.com/embed/onVZcwCvx2A?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=onVZcwCvx2A', title: 'Jungle Smoke' },
+    { link: 'https://www.youtube.com/embed/PBfDSwN12Gc?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=PBfDSwN12Gc', title: 'Stairs Smoke' },
 ];
 
 let shuffledLinks=shuffleArray(originalIframeLinks);
@@ -100,7 +101,8 @@ function addVideoBackToShuffle(link, title) {
 prevButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
         const removedVideo=shuffledLinks[currentIndex];
-        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`; shuffledLinks.splice(currentIndex, 1);
+        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
+        shuffledLinks.splice(currentIndex, 1);
         currentIndex=Math.max(currentIndex-1, 0);
     } else {
         currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
