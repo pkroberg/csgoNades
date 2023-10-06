@@ -25,8 +25,8 @@ CS2 Nades Quick-Study is your ultimate resource for mastering CS:GO 2 grenade li
 
 ## Installation
 
-   -This project requires the installation of Tailwind to edit the CSS. 
-   -Simply open the `index.html` file in your web browser to access the application.
+   - This project requires the installation of Tailwind to edit the CSS. 
+   - Simply open the `index.html` file in your web browser to access the application.
 
 ## Contributing
 
