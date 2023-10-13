@@ -19,10 +19,6 @@ CS2 Nades Quick-Study is your ultimate resource for mastering CS:GO 2 grenade li
    - Use the "Next" and "Previous" buttons to shuffle through grenade lineup videos.
    - Check the "I know this lineup" checkbox to remove a lineup from the shuffle.
 
-3. **Interactive Modal:**
-   - Click "Learn Lineups" to understand how to use the application effectively.
-   - You can choose not to show this modal again.
-
 ## Installation
 
    - This project requires the installation of Tailwind to edit the CSS. 
