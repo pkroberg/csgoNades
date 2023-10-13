@@ -1,5 +1,7 @@
 # CS2 Nades Quick-Study
 
+## https://pkroberg.github.io/csgoNades/
+
 CS2 Nades Quick-Study is your ultimate resource for mastering CS:GO 2 grenade lineups. Explore precise grenade throws through handpicked videos, perfect for Counter-Strike newcomers. Elevate your gameplay while waiting for your next match. Dominate your rounds with pinpoint accuracy using dynamic shuffled lineups.
 
 ## Features
@@ -17,7 +19,8 @@ CS2 Nades Quick-Study is your ultimate resource for mastering CS:GO 2 grenade li
 
 2. **Explore Lineups:**
    - Use the "Next" and "Previous" buttons to shuffle through grenade lineup videos.
-   - Check the "I know this lineup" checkbox to remove a lineup from the shuffle.
+   - Check the "I know this lineup" checkbox to remove a lineup from the shuffle, and add it to the removed video list
+   - Click a removed video to add it back the the end of the shuffle
 
 ## Installation
 
