@@ -97,6 +97,7 @@ function updateIframe() {
 function addVideoBackToShuffle(link, title) {
     shuffledLinks.push({ link, title });
     removedVideosList.removeChild(document.getElementById(title));
+    updateRemovedVideosListVisibility(); // Call the function after modifying the list
 }
 
 prevButton.addEventListener('click', () => {
@@ -105,6 +106,7 @@ prevButton.addEventListener('click', () => {
         removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
         shuffledLinks.splice(currentIndex, 1);
         currentIndex=Math.max(currentIndex-1, 0);
+        updateRemovedVideosListVisibility(); // Call the function after modifying the list
     } else {
         currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
     }
@@ -117,6 +119,7 @@ nextButton.addEventListener('click', () => {
         const removedVideo=shuffledLinks[currentIndex];
         removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Click to add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
         shuffledLinks.splice(currentIndex, 1);
+        updateRemovedVideosListVisibility(); // Call the function after modifying the list
     }
     // Check if there are list elements inside the removedVideosList
     if (removedVideosList.children.length>0) {
@@ -129,6 +132,18 @@ nextButton.addEventListener('click', () => {
     removeCheckbox.checked=false;
     updateIframe();
 });
+
+function updateRemovedVideosListVisibility() {
+    if (removedVideosList.children.length>0) {
+        removedVideosList.classList.remove('hidden');
+        removedVideosListTitle.classList.remove('hidden');
+        removedVideosListTitle.classList.add('flex');
+    } else {
+        removedVideosList.classList.add('hidden');
+        removedVideosListTitle.classList.add('hidden');
+        removedVideosListTitle.classList.remove('flex');
+    }
+}
 
 // Initial load
 updateIframe();
