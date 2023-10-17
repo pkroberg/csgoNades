@@ -111,6 +111,8 @@ prevButton.addEventListener('click', () => {
         currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
     }
     removeCheckbox.checked=false;
+    // Save removed videos list content in local storage
+    localStorage.setItem('removedVideosList', removedVideosList.innerHTML);
     updateIframe();
 });
 
@@ -130,8 +132,19 @@ nextButton.addEventListener('click', () => {
     }
     currentIndex=(currentIndex+1)%shuffledLinks.length;
     removeCheckbox.checked=false;
+    // Save removed videos list content in local storage
+    localStorage.setItem('removedVideosList', removedVideosList.innerHTML);
     updateIframe();
 });
+
+// Check if there is saved content in local storage
+const savedRemovedVideosList=localStorage.getItem('removedVideosList');
+if (savedRemovedVideosList) {
+    // Set the inner HTML of removedVideosList from local storage
+    removedVideosList.innerHTML=savedRemovedVideosList;
+    // Call the updateRemovedVideosListVisibility function after modifying the list
+    updateRemovedVideosListVisibility();
+}
 
 function updateRemovedVideosListVisibility() {
     if (removedVideosList.children.length>0) {
