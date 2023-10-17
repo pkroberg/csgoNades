@@ -60,9 +60,6 @@ const originalIframeLinks=[
 
 ];
 
-let shuffledLinks=shuffleArray(originalIframeLinks);
-let currentIndex=0;
-
 const mirageMap=document.getElementById("mirageMap");
 const mirageMapSmall=document.getElementById("mirageMapSmall");
 const prevButton=document.getElementById('prevButton');
@@ -95,9 +92,22 @@ function updateIframe() {
 }
 
 function addVideoBackToShuffle(link, title) {
+    // Remove the corresponding removed video li from local storage
+    const savedRemovedVideosList=localStorage.getItem('removedVideosList');
+    if (savedRemovedVideosList) {
+        const parser=new DOMParser();
+        const doc=parser.parseFromString(savedRemovedVideosList, 'text/html');
+        const removedVideoToRemove=doc.getElementById(title);
+        if (removedVideoToRemove) {
+            removedVideoToRemove.remove();
+            // Update the removed videos list content in local storage after removing the item
+            localStorage.setItem('removedVideosList', doc.body.innerHTML);
+        }
+    }
     shuffledLinks.push({ link, title });
     removedVideosList.removeChild(document.getElementById(title));
     updateRemovedVideosListVisibility(); // Call the function after modifying the list
+
 }
 
 prevButton.addEventListener('click', () => {
@@ -139,6 +149,24 @@ nextButton.addEventListener('click', () => {
 
 // Check if there is saved content in local storage
 const savedRemovedVideosList=localStorage.getItem('removedVideosList');
+let removedVideos=[];
+
+if (savedRemovedVideosList) {
+    const parser=new DOMParser();
+    const doc=parser.parseFromString(savedRemovedVideosList, 'text/html');
+    // Get removed videos from the saved content in local storage
+    removedVideos=Array.from(doc.querySelectorAll('li.removedVideos')).map(video => {
+        return { link: '', title: video.id };
+    });
+}
+
+// Filter out removed videos from the originalIframeLinks
+let filteredLinks=originalIframeLinks.filter(video => !removedVideos.find(removed => removed.title===video.title));
+
+// Shuffle the filteredLinks array
+let shuffledLinks=shuffleArray(filteredLinks);
+let currentIndex=0;
+
 if (savedRemovedVideosList) {
     // Set the inner HTML of removedVideosList from local storage
     removedVideosList.innerHTML=savedRemovedVideosList;
