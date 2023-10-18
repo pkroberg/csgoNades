@@ -113,15 +113,17 @@ function addVideoBackToShuffle(link, title) {
 prevButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
         const removedVideo=shuffledLinks[currentIndex];
-        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
+        const removedVideosList=document.getElementById('removedVideosList');
+        // Insert the new <li> item at the top of the removedVideosList
+        removedVideosList.insertAdjacentHTML('afterbegin', `<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`);
+
         shuffledLinks.splice(currentIndex, 1);
         currentIndex=Math.max(currentIndex-1, 0);
-        updateRemovedVideosListVisibility(); // Call the function after modifying the list
+        updateRemovedVideosListVisibility();
     } else {
         currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
     }
     removeCheckbox.checked=false;
-    // Save removed videos list content in local storage
     localStorage.setItem('removedVideosList', removedVideosList.innerHTML);
     updateIframe();
 });
@@ -129,20 +131,21 @@ prevButton.addEventListener('click', () => {
 nextButton.addEventListener('click', () => {
     if (removeCheckbox.checked) {
         const removedVideo=shuffledLinks[currentIndex];
-        removedVideosList.innerHTML+=`<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Click to add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`;
+        const removedVideosList=document.getElementById('removedVideosList');
+        removedVideosList.insertAdjacentHTML('afterbegin', `<li class="removedVideos cursor-pointer underline text-light-text text-center" id="${removedVideo.title}" title="Click to add back to end of shuffle" onclick="addVideoBackToShuffle('${removedVideo.link}', '${removedVideo.title}')">${removedVideo.title}</li>`);
+
         shuffledLinks.splice(currentIndex, 1);
-        updateRemovedVideosListVisibility(); // Call the function after modifying the list
+        updateRemovedVideosListVisibility();
     }
-    // Check if there are list elements inside the removedVideosList
+
     if (removedVideosList.children.length>0) {
-        // Remove the "hidden" class if there are list elements
         removedVideosList.classList.remove('hidden');
         removedVideosListTitle.classList.remove('hidden');
         removedVideosListTitle.classList.add('flex');
     }
+
     currentIndex=(currentIndex+1)%shuffledLinks.length;
     removeCheckbox.checked=false;
-    // Save removed videos list content in local storage
     localStorage.setItem('removedVideosList', removedVideosList.innerHTML);
     updateIframe();
 });
