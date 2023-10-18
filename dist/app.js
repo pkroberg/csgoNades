@@ -51,12 +51,11 @@ const originalIframeLinks=[
     { link: 'https://www.youtube.com/embed/2Zo0YHx8Gx8?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=2Zo0YHx8Gx8', title: 'UpperMid to Window Smoke' },
     { link: 'https://www.youtube.com/embed/Og1NU4UA4Fg?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=Og1NU4UA4Fg', title: 'Underpass to Cat Smoke' },
     { link: 'https://www.youtube.com/embed/QgTLPDdUfdY?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=QgTLPDdUfdY', title: 'GeT_RiGhT Smoke' },
-    { link: 'https://www.youtube.com/embed/yrVBNHSWYEQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=yrVBNHSWYEQ', title: 'Market Window Smoke' },
-    { link: 'https://www.youtube.com/embed/fk-NPxkWS_8?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=fk-NPxkWS_8', title: 'Window Smoke' },
-    { link: 'https://www.youtube.com/embed/dOCdLL9J0Cw?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=dOCdLL9J0Cw', title: 'Cat Smoke' },
-    { link: 'https://www.youtube.com/embed/o_AqVvKNV6E?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=o_AqVvKNV6E', title: 'Connector Smoke' },
     { link: 'https://www.youtube.com/embed/onVZcwCvx2A?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=onVZcwCvx2A', title: 'Jungle Smoke' },
     { link: 'https://www.youtube.com/embed/cBM32QV2nGs?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=cBM32QV2nGs', title: 'Stairs Smoke (Align right side of logo on bottom of screen)' },
+    { link: 'https://www.youtube.com/embed/iCifg4QODHw?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=iCifg4QODHw', title: 'Top Connector Smoke' },
+    { link: 'https://www.youtube.com/embed/qN-zWSWgs-E?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=qN-zWSWgs-E', title: 'Connector Smoke from Top Mid' },
+    { link: 'https://www.youtube.com/embed/y4s_tr0vYIA?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=y4s_tr0vYIA', title: 'Window Smoke' },
 
 ];
 
