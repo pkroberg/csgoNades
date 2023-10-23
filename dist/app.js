@@ -269,6 +269,11 @@ function reloadPage() {
     location.reload();
 }
 
+function redirectToMirage() {
+    window.location.href="mirage.html";
+    selectedSmall();
+}
+
 mirageMap.addEventListener("click", reloadPage);
 mirageMapSmall.addEventListener("click", reloadPage);
 
