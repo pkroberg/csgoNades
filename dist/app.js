@@ -264,6 +264,8 @@ function reloadPage() {
     location.reload();
 }
 
-// logoAndTitle.addEventListener('click', window.location.href='index.html');
+logoAndTitle.addEventListener('click', function () {
+    location.reload();
+});
 
 // localStorage.clear();
