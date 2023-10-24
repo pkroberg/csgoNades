@@ -70,6 +70,7 @@ const removedVideosList=document.getElementById('removedVideosList');
 const dontShowAgainCheckbox=document.getElementById('dontShowAgainCheckbox');
 const finishedArrayModal=document.getElementById('finishedArrayModal');
 const iKnowThisLineupDiv=document.getElementById('iKnowThisLineup');
+const logoAndTitle=document.getElementById('logoAndTitle');
 
 function shuffleArray(array) {
     const shuffledArray=[...array];
@@ -80,13 +81,7 @@ function shuffleArray(array) {
     return shuffledArray;
 }
 
-function updateButtons() {
-    // prevButton.disabled=currentIndex===0;
-    // nextButton.disabled=currentIndex===shuffledLinks.length-1;
-}
-
 function updateIframe() {
-    updateButtons();
     iframeContainer.src=shuffledLinks[currentIndex].link;
 }
 
@@ -269,13 +264,6 @@ function reloadPage() {
     location.reload();
 }
 
-function redirectToMirage() {
-    window.location.href="mirage.html";
-    selectedSmall();
-}
-
-mirageMap.addEventListener("click", reloadPage);
-mirageMapSmall.addEventListener("click", reloadPage);
-
+// logoAndTitle.addEventListener('click', window.location.href='index.html');
 
 // localStorage.clear();

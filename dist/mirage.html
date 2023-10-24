@@ -15,7 +15,7 @@
             <div class="2xl:container 2xl:mx-auto">
                 <div class="bg-black 2xl:rounded-3xl shadow-lg py-2 px-16 sm:px-34 md:px-40">
                     <nav class="flex justify-between">
-                        <div class="m-auto lg:m-0 flex items-center space-x-6">
+                        <div id="logoAndTitle" class="m-auto lg:m-0 flex items-center space-x-6 hover:cursor-pointer">
                             <img class="cursor-pointer bg-monkey-grey p-1 rounded-full w-16"
                                 src="pics/Smokegrenadehud_csgo.jpg" alt="circle" />
                             <h2 class="font-normal text-2xl leading-6 text-gray-800 dark:text-light-text">
@@ -25,9 +25,12 @@
 
                         <!-- For medium and plus sized devices -->
                         <ul class="hidden lg:flex space-x-5 justify-center items-center pl-2 pb-2">
-                            <li onclick="" id="mirageMap"
+                            <li onclick="window.location.href='mirage.html'" id="mirageMap"
                                 class="hover:bg-palette-grey3 active:bg-palette-grey2 text-light-text bg-monkey-grey cursor-pointer px-3 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3">
                                 Mirage</li>
+                            <li onclick="window.location.href='inferno.html'" id="infernoMap"
+                                class="hover:bg-palette-grey3 active:bg-palette-grey2 text-light-text bg-monkey-grey cursor-pointer px-3 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3">
+                                Inferno</li>
                             <li onclick="" id="moreToCome"
                                 class="text-light-text bg-monkey-grey px-3 py-3 font-normal text-s leading-3 shadow-md rounded-full h-10 mt-3">
                                 More maps soon</li>
@@ -50,9 +53,14 @@
                         <div class="relative">
                             <ul id="list"
                                 class="hidden font-normal text-base leading-4 absolute top-2 w-full rounded shadow-md z-20">
-                                <li onclick="selectedSmall()" id="mirageMapSmall"
+                                <li onclick="window.location.href='mirage.html'" id="mirageMapSmall"
                                     class="px-4 py-3 text-light-text bg-monkey-grey border border-light-text hover:bg-palette-grey3 duration-100 cursor-pointer text-xs leading-3 font-normal rounded-t-3xl">
-                                    Mirage</li>
+                                    Mirage
+                                </li>
+                                <li onclick="window.location.href='inferno.html'" id="mirageMapSmall"
+                                    class="px-4 py-3 text-light-text bg-monkey-grey border border-light-text hover:bg-palette-grey3 duration-100 cursor-pointer text-xs leading-3 font-normal">
+                                    Inferno
+                                </li>
                                 <li onclick="selectedSmall()"
                                     class="px-4 py-3 text-light-text bg-monkey-grey border border-light-text hover:bg-palette-grey3 duration-100 cursor-pointer text-xs leading-3 font-normal rounded-b-3xl">
                                     More maps soon</li>
