@@ -56,7 +56,14 @@ const originalIframeLinks=[
     { link: 'https://www.youtube.com/embed/iCifg4QODHw?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=iCifg4QODHw', title: 'Top Connector Smoke' },
     { link: 'https://www.youtube.com/embed/qN-zWSWgs-E?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=qN-zWSWgs-E', title: 'Connector Smoke from Top Mid' },
     { link: 'https://www.youtube.com/embed/y4s_tr0vYIA?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=y4s_tr0vYIA', title: 'Window Smoke' },
+];
 
+const infernoIframeLinks=[
+    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
 ];
 
 const mirageMap=document.getElementById("mirageMap");
