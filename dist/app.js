@@ -59,19 +59,7 @@ const originalIframeLinks=[
 ];
 
 const infernoIframeLinks=[
-<<<<<<< HEAD
-    //link template
-    //{ link: 'https://www.youtube.com/embed/"VIDEOID"?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist="VIDEOID"', title: 'TITLE' },
-
-    { link: 'https://www.youtube.com/embed/KzEbiWs1hsk?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=KzEbiWs1hsk', title: 'META SMOKE' },
-    { link: 'https://www.youtube.com/embed/KzEbiWs1hsk?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=KzEbiWs1hsk', title: 'META SMOKE' },
-    { link: 'https://www.youtube.com/embed/KzEbiWs1hsk?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=KzEbiWs1hsk', title: 'META SMOKE' },
-    { link: 'https://www.youtube.com/embed/KzEbiWs1hsk?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=KzEbiWs1hsk', title: 'META SMOKE' },
-    { link: 'https://www.youtube.com/embed/KzEbiWs1hsk?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=KzEbiWs1hsk', title: 'META SMOKE' },
-    { link: 'https://www.youtube.com/embed/KzEbiWs1hsk?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=KzEbiWs1hsk', title: 'META SMOKE' },
-=======
     { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' },
->>>>>>> inferno-iframe-array
 ];
 
 // Check the current page and set shuffledLinks accordingly
@@ -80,10 +68,6 @@ if (window.location.href.includes("inferno.html")) {
 } else {
     var shuffledLinks=shuffleArray(originalIframeLinks);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> inferno-iframe-array
 const mirageMap=document.getElementById("mirageMap");
 const mirageMapSmall=document.getElementById("mirageMapSmall");
 const prevButton=document.getElementById('prevButton');
