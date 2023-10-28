@@ -59,13 +59,15 @@ const originalIframeLinks=[
 ];
 
 const infernoIframeLinks=[
-    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
-    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
-    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
-    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
-    { link: 'https://www.youtube.com/embed/4UO3v0Vvz2Q?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=4UO3v0Vvz2Q', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' },
 ];
 
+// Check the current page and set shuffledLinks accordingly
+if (window.location.href.includes("inferno.html")) {
+    var shuffledLinks=shuffleArray(infernoIframeLinks);
+} else {
+    var shuffledLinks=shuffleArray(originalIframeLinks);
+}
 const mirageMap=document.getElementById("mirageMap");
 const mirageMapSmall=document.getElementById("mirageMapSmall");
 const prevButton=document.getElementById('prevButton');
@@ -168,7 +170,6 @@ if (savedRemovedVideosList) {
 let filteredLinks=originalIframeLinks.filter(video => !removedVideos.find(removed => removed.title===video.title));
 
 // Shuffle the filteredLinks array
-let shuffledLinks=shuffleArray(filteredLinks);
 let currentIndex=0;
 
 if (savedRemovedVideosList) {
@@ -275,4 +276,4 @@ logoAndTitle.addEventListener('click', function () {
     window.location.href="index.html";
 });
 
-// localStorage.clear();
+localStorage.clear();
