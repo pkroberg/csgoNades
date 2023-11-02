@@ -59,7 +59,11 @@ const originalIframeLinks=[
 ];
 
 const infernoIframeLinks=[
-    { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' }, { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' },
+    { link: 'https://www.youtube.com/embed/tTbpoaOmPtQ?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&vq=hd1080&playlist=tTbpoaOmPtQ', title: 'CT Smoke' },
 ];
 
 // Check the current page and set shuffledLinks accordingly
@@ -127,7 +131,7 @@ prevButton.addEventListener('click', () => {
         currentIndex=(currentIndex-1+shuffledLinks.length)%shuffledLinks.length;
     }
     removeCheckbox.checked=false;
-    localStorage.setItem('removedVideosList', removedVideosList.innerHTML);
+    localStorage.setItem('removedVideosList-'+pageName, removedVideosList.innerHTML);
     updateIframe();
 });
 
@@ -149,12 +153,16 @@ nextButton.addEventListener('click', () => {
 
     currentIndex=(currentIndex+1)%shuffledLinks.length;
     removeCheckbox.checked=false;
-    localStorage.setItem('removedVideosList', removedVideosList.innerHTML);
+    localStorage.setItem('removedVideosList-'+pageName, removedVideosList.innerHTML);
     updateIframe();
 });
 
-// Check if there is saved content in local storage
-const savedRemovedVideosList=localStorage.getItem('removedVideosList');
+// Get the current page name
+const pageName=window.location.pathname.split('/').pop().split('.')[0];
+
+// Use the page name in the key for localStorage    
+const savedRemovedVideosList=localStorage.getItem('removedVideosList-'+pageName);
+
 let removedVideos=[];
 
 if (savedRemovedVideosList) {
@@ -276,4 +284,4 @@ logoAndTitle.addEventListener('click', function () {
     window.location.href="index.html";
 });
 
-localStorage.clear();
+// localStorage.clear();
